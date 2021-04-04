@@ -21,5 +21,9 @@ export class OmniNavComponent implements OnInit {
 		this.notesService.makeNote();
 	}
 
+	archiveNotes():void{
+		this.notesService.archiveNotes();
+	}
+
 
 }

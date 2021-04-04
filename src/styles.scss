@@ -9,15 +9,10 @@ body {
   width: 100%;
   height: 100vh;
   background:
-    linear-gradient(cyan,
-    transparent),
-    linear-gradient(-45deg,
-    magenta,
-    transparent),
-    linear-gradient(45deg,
-    yellow,
-    transparent);
-  background-blend-mode: multiply;
+    linear-gradient(#66ffffb5, transparent), 
+    radial-gradient( ellipse at bottom, #91ff0096, transparent), 
+    linear-gradient(45deg, #ff00df87, transparent);
+  background-blend-mode: lighten;
 }
 
 button {

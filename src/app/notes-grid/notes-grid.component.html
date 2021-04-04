@@ -1,3 +1,11 @@
 
-	<app-note *ngFor="let note of notes" [note]="note"></app-note>
+	<app-note [@ItemStateTransition]="'in'"  *ngFor="let note of notes" [note]="note"></app-note>
+<!--
+	<ul>
+		<li *ngFor="let note of notes">{{note.title}}</li>
+	</ul>
+
+	<ul>
+		<li *ngFor="let note of archivedNotes">{{note.title}}</li>
+	</ul>-->
 
