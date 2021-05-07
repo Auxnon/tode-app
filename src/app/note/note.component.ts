@@ -64,6 +64,11 @@ export class NoteComponent implements OnInit {
     if(event && event.dataTransfer && this.note)
       event.dataTransfer.setData("Text", ""+this.note.id);
   }
+  cancelDrag(event:DragEvent):boolean{
+    console.log('dragg')
+    event.stopPropagation();
+    return false;
+  }
   pointerBegin(event: PointerEvent | null): void {
     /*if (element && element instanceof Element && element.parentElement)
       element.parentElement.setAttribute('draggable', 'true');*/
@@ -80,8 +85,8 @@ export class NoteComponent implements OnInit {
     }
   }
   keyEnter(event: Event):void{
+    event.stopPropagation();
     this.notesService.makeNote(this.note?this.note.id:0);
-     event.preventDefault();
   }
   complete(): void {
     if(this.note)

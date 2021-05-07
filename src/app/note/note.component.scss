@@ -10,16 +10,23 @@
   h2 {
     border-bottom: 3px dashed transparent;
     transition: border 0.2s;
-  }
-  [contenteditable="true"]:focus {
-    border: none;
-    border-bottom: 3px solid black;
-    outline: none;
+    min-width: 1em;
   }
 
+  [contenteditable="true"] {
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-user-drag: none;
+    user-drag: none;
 
+    &:focus {
+      border: none;
+      border-bottom: 3px solid black;
+      outline: none;
+    }
+  }
 
-  .dragger {
+  .note-dragger {
     display: inline-block;
     position: absolute;
     left: 0;
@@ -31,7 +38,7 @@
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="black"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>');
   }
 
-  .radiobutton {
+  .note-selection {
     display: inline-block;
     position: absolute;
     right: 0;
@@ -48,7 +55,7 @@
     color: #0005;
     text-decoration: line-through;
 
-    .radiobutton {
+    .note-selection {
       background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" fill="white"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29L5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"/></svg>');
     }
   }

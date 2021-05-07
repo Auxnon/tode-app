@@ -1,6 +1,6 @@
 <div *ngIf="note" class="note-body" id="{{note.id}}" [ngClass]="note.complete?'note--done':''" draggable="true" (dragover)="allowDrop($event)" (drop)="dropOnto($event)" (dragstart)="dragBegin($event)">
-  <div class="dragger" ></div>
-  <h2 autofocus="true" #textSpan contenteditable="true" (blur)="alter($event.target)" [textContent]="note.title" (keydown.enter)="keyEnter($event)"></h2>
+  <div class="note-dragger" ></div>
+  <h2 autofocus="true" #textSpan contenteditable="true" (blur)="alter($event.target)" [textContent]="note.title" (keydown.enter)="keyEnter($event)" (dragstart)="cancelDrag($event)"></h2>
   <p contenteditable="true" *ngIf="note.description">{{note.description}}</p>
-  <div class="radiobutton" (click)="complete()"></div>
+  <div class="note-selection" (click)="complete()"></div>
 </div>

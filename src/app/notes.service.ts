@@ -29,8 +29,10 @@ export class NotesService {
   makeNote(id?: number): void {
     if (id != undefined) {
       let index = this.notes.findIndex(item => item.id === id);
-      if (index != -1)
+      if (index != -1){
+        console.log('make note after',index)
         this.notes.splice(index + 1, 0, { title: '', id: ++this.iterator, complete: false });
+      }
     } else
       this.notes.push({ title: '', id: ++this.iterator, complete: false });
   }
@@ -39,7 +41,9 @@ export class NotesService {
   }
   deleteNote(note: Note) {
     let index = this.notes.findIndex((item: Note) => item.id === note.id);
-    this.notes.splice(index, 1);
+    
+    let out=this.notes.splice(index, 1);
+    console.log('delete note',note.title,' found ', out[0].title)
     this.syncCheck();
   }
   swapNotes(original: number, target: number): void {
@@ -70,6 +74,19 @@ export class NotesService {
     })*/
     this.syncCheck();
   }
+  unselectNotes(): void {
+    let any=0;
+    this.notes.forEach(note=>{
+      if(note.complete){
+        any++;
+        note.complete=false;
+      }
+    });
+    if(any>0)
+      this.syncCheck();
+  }
+
+
   syncCheck(): void {
     if (this.syncDebouncer)
       clearTimeout(this.syncDebouncer);
